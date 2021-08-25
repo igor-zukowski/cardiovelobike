@@ -1,0 +1,35 @@
+Bike speed controller is based on Espressif esp32 chip.
+Connectivity between bike module and app runs via BLE.
+
+App sends to esp32:
+
+-	"1" coded in base64 in order tp shift the gear down
+-	"2" coded in base64 in order tp shift the gear up
+
+
+As the connection is estabilished, esp32 performs 4-time down shifting do obtain 
+default "0" gear - so training always start at the lowest gear.
+
+Gears are being shifted by providing LOW state (GND) on 
+
+GPIO 18 --> which corresponds to pin that increases gear
+GPIO 19 --> which corresponds to pin that decreases gear
+
+Default is HIGH state on both pins ( 3.3V ).
+
+Default duration of pulse is: 100 ms.
+
+Default BLE device name is: "cardioVelo Bike"
+
+Compiled binary available for ESP DevModule.
+
+
+To add esp32 board to IDE please use:  
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+more info about esp32 module:
+https://github.com/espressif/arduino-esp32
+
+
+
+
